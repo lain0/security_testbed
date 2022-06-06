@@ -10,3 +10,7 @@
 2. http://lvh.me:3000
 
 Press Ctrl+C to quit.
+
+## Console
+
+`make bash`
