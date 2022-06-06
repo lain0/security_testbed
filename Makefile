@@ -1,2 +1,2 @@
 make start:
-	docker-compose up
+	rm -f tmp/pids/server.pid && docker-compose up
