@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  app:
+    image: security_testbed
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app:cached
+      - bundle_cache:/usr/local/bundle
+      - packs:/app/public/packs:cached
+      - rails_cache:/app/tmp/cache:cached
+
+volumes:
+  bundle_cache:
+  packs:
+  rails_cache:
