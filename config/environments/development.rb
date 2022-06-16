@@ -69,5 +69,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.action_dispatch.default_headers = {}
+  config.session_store :cookie_store, httponly: false
+
   config.hosts << "lvh.me"
 end
