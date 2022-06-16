@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
+    session[:id] ||= rand(1..100)
     @posts = Post.all
   end
 
