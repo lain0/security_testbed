@@ -47,7 +47,7 @@ gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-
+gem 'rack', '>= 2.2.3.1'
 gem 'rack-cors'
 
 group :development, :test do
@@ -56,6 +56,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'brakeman'
+  gem 'bundle-audit'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 

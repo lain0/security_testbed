@@ -71,7 +71,13 @@ GEM
     bindex (0.8.1)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
+    brakeman (5.2.3)
     builder (3.2.4)
+    bundle-audit (0.1.0)
+      bundler-audit
+    bundler-audit (0.9.1)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 1.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -136,7 +142,7 @@ GEM
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
-    rack (2.2.3)
+    rack (2.2.3.1)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
     rack-test (1.1.0)
@@ -218,11 +224,14 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  brakeman
+  bundle-audit
   capybara
   debug
   importmap-rails
   jbuilder
   puma (~> 5.0)
+  rack (>= 2.2.3.1)
   rack-cors
   rails (~> 7.0.3)
   selenium-webdriver
