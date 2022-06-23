@@ -1,0 +1,43 @@
+---
+name: Manual Security scan
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Manual security audit'
+jobs:
+  manual-gems-audit:
+    name: Manual gems CVE audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+
+      - name: Install bundler-audit
+        run: gem install bundler-audit
+
+      - name: Run bundle-audit
+        run: bundle-audit check --update
+
+  manual-code-audit:
+    name: Manula code security audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+
+      - name: Install brakeman
+        run: gem install brakeman
+
+      - name: Run brakeman ruby code security audit
+        run: brakeman -6 -z -A -q --ensure-latest --ensure-ignore-notes --skip-files=vendor/ --no-pager
